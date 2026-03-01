@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Perfil | Professor Capucho</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">PROFESSOR <span>CAPUCHO.</span></div>
+        <div class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre Mim</a>
+            <a href="mentoria.html" class="active">Mentoria</a>
+            <a href="planos.html">Planos</a>
+            <a href="depoimentos.html">Depoimentos</a>
+            <a href="contato.html" class="cta-button-nav">Começar Agora</a>
+        </div>
+        <div class="menu-icon">
+            <i class="ph ph-list"></i>
+        </div>
+    </nav>
+
+    <main>
+        <section class="quiz-section">
+            <div class="container">
+                <div class="quiz-card" id="quiz-container">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+
+                    <div class="quiz-step active" id="step1">
+                        <h2>Qual é o seu principal objetivo hoje?</h2>
+                        <div class="options-grid">
+                            <button class="quiz-option" onclick="selectOption('objetivo', 'Emagrecimento', 2)">
+                                <i class="ph ph-fire"></i>
+                                <span>Queimar Gordura / Emagrecer</span>
+                            </button>
+                            <button class="quiz-option" onclick="selectOption('objetivo', 'Hipertrofia', 2)">
+                                <i class="ph ph-barbell"></i>
+                                <span>Ganhar Massa Muscular</span>
+                            </button>
+                            <button class="quiz-option" onclick="selectOption('objetivo', 'Condicionamento', 2)">
+                                <i class="ph ph-heart"></i>
+                                <span>Saúde e Condicionamento</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step2">
+                        <h2>Você já treina atualmente?</h2>
+                        <div class="options-grid">
+                            <button class="quiz-option" onclick="selectOption('experiencia', 'Nunca treinei', 3)">
+                                <i class="ph ph-baby"></i>
+                                <span>Não, sou sedentário</span>
+                            </button>
+                            <button class="quiz-option" onclick="selectOption('experiencia', 'Treino as vezes', 3)">
+                                <i class="ph ph-person-simple-walk"></i>
+                                <span>Treino de vez em quando</span>
+                            </button>
+                            <button class="quiz-option" onclick="selectOption('experiencia', 'Treino sério', 3)">
+                                <i class="ph ph-medal"></i>
+                                <span>Sim, já treino sério</span>
+                            </button>
+                        </div>
+                        <button class="btn-back" onclick="prevStep(1)" style="margin-top: 20px; background: none; border: none; color: var(--text-gray); cursor: pointer; text-decoration: underline;">Voltar</button>
+                    </div>
+
+                    <div class="quiz-step" id="step3">
+                        <h2>Quantos dias na semana você pode treinar?</h2>
+                        <div class="options-grid">
+                            <button class="quiz-option" onclick="selectOption('dias', '1 a 3 dias', 4)">
+                                <i class="ph ph-calendar"></i>
+                                <span>1 a 3 vezes na semana</span>
+                            </button>
+                            <button class="quiz-option" onclick="selectOption('dias', '3 a 5 dias', 4)">
+                                <i class="ph ph-calendar-plus"></i>
+                                <span>3 a 5 vezes na semana</span>
+                            </button>
+                            <button class="quiz-option" onclick="selectOption('dias', 'Todos os dias', 4)">
+                                <i class="ph ph-calendar-check"></i>
+                                <span>Tenho disponibilidade total</span>
+                            </button>
+                        </div>
+                        <button class="btn-back" onclick="prevStep(2)" style="margin-top: 20px; background: none; border: none; color: var(--text-gray); cursor: pointer; text-decoration: underline;">Voltar</button>
+                    </div>
+
+                    <div class="quiz-step" id="step4">
+                        <i class="ph-fill ph-check-circle" style="font-size: 4rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                        <h2>Perfil Analisado!</h2>
+                        <p style="margin-bottom: 20px; color: var(--text-gray);">Preencha seus dados para receber sua estratégia personalizada.</p>
+                        
+                        <div class="form-group">
+                            <input type="text" id="clientName" placeholder="Seu nome completo" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: white; margin-bottom: 15px;">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" id="clientAge" placeholder="Sua idade" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: white; margin-bottom: 20px;">
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="finishQuiz()">
+                            RECEBER MEU PLANO NO WHATSAPP <i class="ph ph-whatsapp-logo"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Professor Capucho. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
