@@ -169,19 +169,24 @@ img {
 .hero-image-container {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100vh;
+    justify-content: center; /* Mudou de flex-end para center (move a imagem para a esquerda) */
+    align-items: flex-start;
+    height: 950px; /* Defina uma altura fixa para o container da imagem */
     position: relative;
 }
 
 .hero-image-container img {
-    max-width: 90%;
-    height: 85%;
+    max-width: 110%; /* Aumentado para deixá-lo mais largo */
+    height: 105%; /* Aumentado para deixá-lo mais alto */
     object-fit: contain;
     filter: drop-shadow(0 0 20px rgba(255, 157, 0, 0.15));
     mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    
+    /* Propriedade extra: ajuste o valor do translateX se quiser empurrá-lo ainda mais para a esquerda */
+   position: relative;
+    top: -80px;   /* Puxa ele para cima. Se quiser mais alto, mude para -100px, -120px... */
+    left: -109px; /* Mantém ele na esquerda como você queria */
 }
 
 /* --- BUTTONS --- */
@@ -524,22 +529,136 @@ footer {
     color: var(--text-gray);
 }
 
-/* --- WHATSAPP FLOAT --- */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25d366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+/* Container e Grid */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Estilo do Novo Card Escuro */
+.dark-card {
+    background-color: #1a1a1a; /* Fundo escuro elegante */
+    border: 1px solid #333; /* Borda sutil */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    z-index: 1000;
+    flex-direction: column;
+}
+
+.dark-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: #f39c12; /* Cor de destaque (amarelo/laranja do logo) */
+}
+
+/* Seção de Imagens Antes/Depois */
+.transformation-images {
+    display: flex;
+    width: 100%;
+    height: 220px; /* Altura fixa para alinhar todas as fotos */
+}
+
+.image-wrapper {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a foto preencha o espaço sem distorcer */
+    filter: grayscale(20%); /* Dá um tom mais dramático */
+    transition: filter 0.3s ease;
+}
+
+.dark-card:hover .image-wrapper img {
+    filter: grayscale(0%);
+}
+
+/* Tags de "Antes" e "Depois" */
+.photo-label {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    backdrop-filter: blur(4px);
+}
+
+.after-label {
+    background-color: #f39c12; /* Amarelo de destaque para o "Depois" */
+    color: #000;
+}
+
+/* Conteúdo do Depoimento */
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.stars {
+    color: #f39c12;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.quote {
+    color: #cccccc;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.student-info h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.student-info span {
+    color: #f39c12;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+/* --- EFEITO DE BRILHO (GLOW) --- */
+.text-glow {
+    color: var(--primary-color);
+    /* Cria várias camadas de sombra para dar o efeito de luz espalhando */
+    text-shadow: 
+        0 0 10px rgba(255, 157, 0, 0.6),
+        0 0 20px rgba(255, 157, 0, 0.4),
+        0 0 30px rgba(255, 157, 0, 0.2);
+    /* Opcional: Chama a animação abaixo para o brilho "pulsar" suavemente */
+    animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes Glow {
+    from {
+        text-shadow: 
+            0 0 10px rgba(255, 157, 0, 0.6),
+            0 0 20px rgba(255, 157, 0, 0.4);
+    }
+    to {
+        text-shadow: 
+            0 0 15px rgba(255, 157, 0, 0.9),
+            0 0 25px rgba(255, 157, 0, 0.7),
+            0 0 40px rgba(255, 157, 0, 0.5);
+    }
 }
 
 /* --- RESPONSIVE --- */
